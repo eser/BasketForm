@@ -34,12 +34,14 @@
             this.toolStripButtonSettings = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonNewFolder = new System.Windows.Forms.ToolStripButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripQuit = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripQuit,
             this.toolStripButtonSettings,
             this.toolStripButtonNewFolder});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -71,6 +73,16 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // toolStripQuit
+            // 
+            this.toolStripQuit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripQuit.Image = ((System.Drawing.Image)(resources.GetObject("toolStripQuit.Image")));
+            this.toolStripQuit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripQuit.Name = "toolStripQuit";
+            this.toolStripQuit.Size = new System.Drawing.Size(50, 22);
+            this.toolStripQuit.Text = "Quit";
+            this.toolStripQuit.Click += new System.EventHandler(this.toolStripQuit_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -84,9 +96,9 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(400, 157);
             this.Name = "frmMain";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Basket Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -100,6 +112,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonSettings;
         private System.Windows.Forms.ToolStripButton toolStripButtonNewFolder;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripQuit;
     }
 }
 

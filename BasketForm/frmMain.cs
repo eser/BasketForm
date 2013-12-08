@@ -33,6 +33,7 @@ namespace BasketForm
         public List<Folder> Folders { get; set; }
         private string[] contextMenuFiles;
         private string contextTargetDirectory;
+        private bool allowQuit = false;
 
         public frmMain()
         {
@@ -200,6 +201,20 @@ namespace BasketForm
                     }
                     // else is ignore, so ignore it.
                 }
+            }
+        }
+
+        private void toolStripQuit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!this.allowQuit && e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                this.WindowState = FormWindowState.Minimized;
             }
         }
     }

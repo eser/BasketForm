@@ -65,6 +65,11 @@ namespace BasketForm
 
         protected void KeyboardHook_KeyPressed(object sender, KeyPressedEventArgs e)
         {
+            if (this.MainForm.WindowState == FormWindowState.Minimized)
+            {
+                this.MainForm.WindowState = FormWindowState.Normal;
+            }
+
             this.MainForm.Activate();
         }
 
