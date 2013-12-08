@@ -49,6 +49,10 @@
     <Compile Include="Abstraction\Config\ConfigSerializer.cs" />
     <Compile Include="Abstraction\Config\IConfig.cs" />
     <Compile Include="Abstraction\Folder.cs" />
+    <Compile Include="Abstraction\GlobalHotkeys\Window.cs" />
+    <Compile Include="Abstraction\GlobalHotkeys\KeyboardHook.cs" />
+    <Compile Include="Abstraction\GlobalHotkeys\ModifierKeys.cs" />
+    <Compile Include="Abstraction\GlobalHotkeys\KeyPressedEventArgs.cs" />
     <Compile Include="Abstraction\ProgramConfig.cs" />
     <Compile Include="ProgramLogic.cs" />
     <Compile Include="frmMain.cs">

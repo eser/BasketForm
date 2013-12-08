@@ -22,10 +22,12 @@ namespace BasketForm
 {
     using System;
     using System.IO;
+    using System.Windows.Forms;
     using BasketForm.Abstraction;
     using BasketForm.Abstraction.Config;
+    using BasketForm.Abstraction.GlobalHotkeys;
 
-    public class ProgramLogic
+    public class ProgramLogic : IDisposable
     {
         public const string ConfigFilename = "config.json";
 
@@ -49,10 +51,26 @@ namespace BasketForm
             }
 
             this.MainForm = new frmMain();
+
+            this.KeyboardHook = new KeyboardHook();
+            this.KeyboardHook.RegisterHotKey(ModifierKeys.Win, Keys.PageDown);
+            this.KeyboardHook.KeyPressed += this.KeyboardHook_KeyPressed;
         }
 
-        public static ProgramLogic Instance { get; private set; }
+        public void Dispose()
+        {
+            this.KeyboardHook.Dispose();
+            this.MainForm.Dispose();
+        }
+
+        protected void KeyboardHook_KeyPressed(object sender, KeyPressedEventArgs e)
+        {
+            this.MainForm.Activate();
+        }
+
+        public static ProgramLogic Instance { get; protected set; }
         public frmMain MainForm { get; private set; }
         public ProgramConfig Config { get; private set; }
+        public KeyboardHook KeyboardHook { get; private set; }
     }
 }
