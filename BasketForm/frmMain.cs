@@ -45,12 +45,10 @@ namespace BasketForm
                 this.Folders.AddRange(ProgramLogic.Instance.Config.Folders);
             }
 
-            // this.Folders.Add(new Folder() { Title = "Music", PhysicalPath = @"Q:\Music", TileSize = 1, DisplaySubfolderTree = true });
-            // this.Folders.Add(new Folder() { Title = "Webroot", PhysicalPath = @"Q:\webroot", TileSize = 1, DisplaySubfolderTree = false });
-
-            this.FoldersCreate();
+            int finalX = this.FoldersCreate();
 
             Rectangle x = Screen.GetWorkingArea(this);
+            this.Width = finalX;
             this.SetDesktopLocation(x.Right - this.Width - 5, x.Top + 5);
         }
 
@@ -62,18 +60,23 @@ namespace BasketForm
             }
         }
 
-        public void FoldersCreate()
+        public int FoldersCreate()
         {
-            int createdCount = 0;
+            const int spacing = 12;
+            int x = spacing;
 
             foreach (Folder folder in this.Folders) {
+                int width = 130 * folder.TileSize;
+
                 folder.FormButton = new Button() {
                     AllowDrop = true,
                     Text = folder.Title,
                     Tag = folder,
-                    Size = new Size(130, 118),
-                    Location = new Point(12 + (12 + 130) * createdCount++, 28)
+                    Size = new Size(width, 118),
+                    Location = new Point(x, 28)
                 };
+
+                x += width + spacing;
 
                 folder.FormButton.DragEnter += this.button_DragEnter;
                 folder.FormButton.DragDrop += this.button_DragDrop;
@@ -81,6 +84,8 @@ namespace BasketForm
 
                 this.Controls.Add(folder.FormButton);
             }
+
+            return x + spacing;
         }
 
         public void FoldersReset()

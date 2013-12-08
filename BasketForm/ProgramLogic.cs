@@ -53,7 +53,7 @@ namespace BasketForm
             this.MainForm = new frmMain();
 
             this.KeyboardHook = new KeyboardHook();
-            this.KeyboardHook.RegisterHotKey(ModifierKeys.Win, Keys.PageDown);
+            this.KeyboardHook.RegisterHotKey(ModifierKeys.Win, Keys.Escape);
             this.KeyboardHook.KeyPressed += this.KeyboardHook_KeyPressed;
         }
 
