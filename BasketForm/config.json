@@ -1,0 +1,16 @@
+{
+    "Folders": [
+        {
+            "Title": "Music",
+            "PhysicalPath": "Q:\\Music",
+            "TileSize": 1,
+            "DisplaySubfolderTree": true
+        },
+        {
+            "Title": "Webroot",
+            "PhysicalPath": "Q:\\webroot",
+            "TileSize": 1,
+            "DisplaySubfolderTree": false
+        }
+    ]
+}

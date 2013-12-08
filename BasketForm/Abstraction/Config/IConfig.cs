@@ -1,5 +1,5 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="Folder.cs" company="-">
+// -----------------------------------------------------------------------
+// <copyright file="IConfig.cs" company="-">
 // Copyright (c) 2013 larukedi (eser@sent.com). All rights reserved.
 // </copyright>
 // <author>larukedi (http://github.com/larukedi/)</author>
@@ -18,22 +18,12 @@
 //// You should have received a copy of the GNU General Public License
 //// along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace BasketForm.Abstraction
+namespace BasketForm.Abstraction.Config
 {
-    using System.Runtime.Serialization;
-    using System.Windows.Forms;
-    
-    public class Folder
+    /// <summary>
+    /// IConfig interface.
+    /// </summary>
+    public interface IConfig
     {
-        [DataMember]
-        public string Title { get; set; }
-        [DataMember]
-        public string PhysicalPath { get; set; }
-        [DataMember]
-        public int TileSize { get; set; }
-        [DataMember]
-        public bool DisplaySubfolderTree { get; set; }
-        [IgnoreDataMember]
-        internal Button FormButton { get; set; }
     }
 }

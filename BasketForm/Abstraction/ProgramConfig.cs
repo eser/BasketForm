@@ -1,5 +1,5 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="Folder.cs" company="-">
+// -----------------------------------------------------------------------
+// <copyright file="ProgramConfig.cs" company="-">
 // Copyright (c) 2013 larukedi (eser@sent.com). All rights reserved.
 // </copyright>
 // <author>larukedi (http://github.com/larukedi/)</author>
@@ -21,19 +21,22 @@
 namespace BasketForm.Abstraction
 {
     using System.Runtime.Serialization;
-    using System.Windows.Forms;
-    
-    public class Folder
+    using BasketForm.Abstraction.Config;
+
+    /// <summary>
+    /// Program configuration
+    /// </summary>
+    [DataContract]
+    public class ProgramConfig : IConfig
     {
+        /// <summary>
+        /// Gets or sets the folders.
+        /// </summary>
+        /// <value>
+        /// The folders.
+        /// </value>
         [DataMember]
-        public string Title { get; set; }
-        [DataMember]
-        public string PhysicalPath { get; set; }
-        [DataMember]
-        public int TileSize { get; set; }
-        [DataMember]
-        public bool DisplaySubfolderTree { get; set; }
-        [IgnoreDataMember]
-        internal Button FormButton { get; set; }
+        [ConfigEntry(DefaultValue = null)]
+        public Folder[] Folders { get; set; }
     }
 }
