@@ -75,14 +75,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 158);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(384, 118);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = global::BasketForm.Properties.Resources.ProgramIcon;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(400, 197);
+            this.MinimumSize = new System.Drawing.Size(400, 157);
             this.Name = "frmMain";
-            this.Icon = global::BasketForm.Properties.Resources.ProgramIcon;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Basket Form";

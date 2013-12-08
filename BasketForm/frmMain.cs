@@ -66,14 +66,18 @@ namespace BasketForm
             int x = spacing;
 
             foreach (Folder folder in this.Folders) {
-                int width = 130 * folder.TileSize;
+                int width = 90 * folder.TileSize;
 
                 folder.FormButton = new Button() {
                     AllowDrop = true,
                     Text = folder.Title,
                     Tag = folder,
-                    Size = new Size(width, 118),
-                    Location = new Point(x, 28)
+                    Size = new Size(width, 78),
+                    Location = new Point(x, 28),
+                    Image = global::BasketForm.Properties.Resources.Folder.ToBitmap(),
+                    ImageAlign = ContentAlignment.MiddleCenter,
+                    TextImageRelation = TextImageRelation.ImageAboveText,
+                    Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left // | AnchorStyles.Right
                 };
 
                 x += width + spacing;
@@ -150,10 +154,13 @@ namespace BasketForm
                     contextMenuStrip1.Items.Add(item);
                 }
 
-                Control senderControl = sender as Control;
-                contextMenuStrip1.Show(senderControl, 0, senderControl.Height);
+                if (contextMenuStrip1.Items.Count > 0)
+                {
+                    Control senderControl = sender as Control;
+                    contextMenuStrip1.Show(senderControl, 0, senderControl.Height);
 
-                return;
+                    return;
+                }
             }
 
             this.MoveFiles(this.contextMenuFiles, this.contextTargetDirectory);
